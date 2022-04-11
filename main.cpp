@@ -6,6 +6,8 @@
 
 #include <vector>
 
+#include "modul1.hpp"
+
 using namespace std;
 /*
  * It will iterate through all the lines in file and
@@ -31,17 +33,7 @@ bool getFileContent(std::string fileName, std::vector < std::string > & vecOfStr
   return true;
 }
 
-void func1(vector <string>& words){
- string odd=" ";
- string even = " ";
- for(int i = 0; i<words.size();i++){
-   if(words[i].size() %2==0) odd = odd +" " +words[i];
-   else even = even +" " +words[i];
- } 
-  cout<<"odd== "<< odd<< endl;
-  cout << "even== " << even <<endl;
 
-}
 
 double* func2(vector <string>& words){
  double count = words.size();
