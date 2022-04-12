@@ -9,23 +9,23 @@ using namespace std;
  * It will iterate through all the lines in file and
  * put them in given vector
  */
-bool getFileContent(std::string fileName, std::vector < std::string > & vecOfStrs) {
+bool getFileContent(string fileName, vector < string > & vecOfStrs) {
   // Open the File
-  std::ifstream in (fileName.c_str());
+  ifstream in (fileName.c_str());
   // Check if object is valid
   if (! in ) {
-    std::cerr << "Cannot open the File : " << fileName << std::endl;
+    cerr << "Cannot open the File : " << fileName << endl;
     return false;
   }
-  std::string str;
+  string str;
   // Read the next line from File untill it reaches the end.
-  while (std::getline( in , str)) {
+  while (getline( in , str)) {
     // Line contains string of length > 0 then save it in vector
     if (str.size() > 0)
       vecOfStrs.push_back(str);
   }
   //Close The File
-  in .close();
+  in.close();
   return true;
 }
 
@@ -43,8 +43,8 @@ int main(int argc, char * argv[]) {
     bool result = getFileContent("arguments.txt", words);
     if (result) {
       // Print the vector contents
-      for (std::string & line: words)
-        std::cout << line << std::endl;
+      for (string & line: words)
+        cout << line << endl;
     }
   }  
   func1(words);
@@ -57,5 +57,6 @@ int main(int argc, char * argv[]) {
   ofstream MyFile(filename);
   MyFile<< mas[0]<< " "<< mas[1]<< endl;
   MyFile.close();
-return 0;
+  
+  return 0;
 }

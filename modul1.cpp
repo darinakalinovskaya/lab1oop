@@ -23,7 +23,7 @@ double* func2(vector <string>& words){
   length += words[i].size();
  } 
   cout <<"average == "<< length/count<< endl;
-  cout<< length<< endl<< count<< endl;
+  cout<<"length total== " <<length<< endl<< "words count== " <<count<< endl;
   static double mas[2]={count, length/count};
   return mas;
 }
