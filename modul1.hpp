@@ -1,11 +1,4 @@
-#include <iostream>
 
-#include <fstream>
+void func1(std::vector <std::string>& words);
 
-#include <string>
-
-#include <vector>
-
-using namespace std;
-
-void func1(std::vector <string>& words)
+double* func2(std::vector <std::string>& words);

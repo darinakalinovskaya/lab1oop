@@ -1,11 +1,7 @@
 #include <iostream>
-
 #include <fstream>
-
 #include <string>
-
 #include <vector>
-
 #include "modul1.hpp"
 
 using namespace std;
@@ -34,19 +30,6 @@ bool getFileContent(std::string fileName, std::vector < std::string > & vecOfStr
 }
 
 
-
-double* func2(vector <string>& words){
- double count = words.size();
- int length=0;
- for(int i = 0; i<words.size();i++){
-  length += words[i].size();
- } 
-  cout <<"average == "<< length/count;
-  //cout<< length<< endl<< count;
-  static double mas[2]={count, length/count};
-  return mas;
-}
-
 int main(int argc, char * argv[]) {
   
   vector < string > words;
@@ -65,7 +48,14 @@ int main(int argc, char * argv[]) {
     }
   }  
   func1(words);
-  double mas[2];
-  func2(words);
+  double* mas;
+  mas = func2(words);
+
+  cout <<"Enter answers filename "<< endl;
+  string filename;
+  cin>>filename;
+  ofstream MyFile(filename);
+  MyFile<< mas[0]<< " "<< mas[1]<< endl;
+  MyFile.close();
 return 0;
 }
