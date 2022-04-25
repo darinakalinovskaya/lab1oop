@@ -1,5 +1,5 @@
 compile = ["make", "-s"]
-run = "./main aaa asdf youh"
+run = "./main out.txt "
 entrypoint = "main.cpp"
 hidden = ["main", "**/*.o", ".ccls-cache", "Makefile"]
  

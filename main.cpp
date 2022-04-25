@@ -31,16 +31,29 @@ bool getFileContent(string fileName, vector < string > & vecOfStrs) {
 
 
 int main(int argc, char * argv[]) {
-  
+  string outFile = "";
+  cout << argc<< endl;
+  if(argc<2){
+    cout<<" no output parameter ";
+    return 0;
+  }
+  else{
+    outFile = argv[1];
+    cout <<"outFile:   "<< outFile<< endl;
+  }
+
   vector < string > words;
-  for (int i = 1; i < argc; i++) {
+  for (int i = 2; i < argc; i++) {
     cout << argv[i] << endl;
     words.push_back(argv[i]);
   }
   
-  if (argc < 2) {
+  if (argc < 3) {
+    string file1;
+    cout<<"Enter filename: "<< endl;
+    cin >> file1;
     // Get the contents of file in a vector
-    bool result = getFileContent("arguments.txt", words);
+    bool result = getFileContent(file1, words);
     if (result) {
       // Print the vector contents
       for (string & line: words)
@@ -51,11 +64,12 @@ int main(int argc, char * argv[]) {
   double* mas;
   mas = func2(words);
 
-  cout <<"Enter answers filename "<< endl;
-  string filename;
-  cin>>filename;
-  ofstream MyFile(filename);
+  ofstream MyFile(outFile);
   MyFile<< mas[0]<< " "<< mas[1]<< endl;
+  MyFile <<"sorted data: "<< endl;
+  for(const auto& value: words) {
+    MyFile<< value << "\n";
+}
   MyFile.close();
   
   return 0;
